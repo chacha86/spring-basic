@@ -74,8 +74,8 @@ public class TestController {
     public String test6() {
         StringBuilder sb = new StringBuilder();
 
-        for(int i = 1; i <= 9; i++) {
-            sb.append(2 + " X " + i + " = " + (2*i) + "<br>");
+        for (int i = 1; i <= 9; i++) {
+            sb.append(2 + " X " + i + " = " + (2 * i) + "<br>");
         }
 
         return sb.toString();
@@ -105,6 +105,7 @@ public class TestController {
 
         return sb.toString();
     }
+
     @RequestMapping("/test10")
     @ResponseBody
     public String test10(@RequestParam("dan") int dan, @RequestParam("limit") int limit) {
@@ -122,6 +123,19 @@ public class TestController {
         return age + "살 " + name + "입니다.";
     }
 
+    @RequestMapping("/login")
+    @ResponseBody
+    public String login(@RequestParam("loginId") String loginId, @RequestParam("password") String password) {
+        String userId = "hong";
+        String userPw = "1234";
+
+        if (loginId.equals(userId) && password.equals(userPw)) {
+            return "로그인 성공";
+        } else {
+            return "로그인 실패";
+        }
+
+    }
 
 }
 
