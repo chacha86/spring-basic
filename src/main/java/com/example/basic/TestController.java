@@ -155,6 +155,10 @@ public class TestController {
         return "login";
     }
 
+    @RequestMapping("/html-test")
+    public String htmlTest() {
+        return "test";
+    }
 }
 
 @Getter
