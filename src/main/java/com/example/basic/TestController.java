@@ -94,6 +94,34 @@ public class TestController {
         return name + "님 반갑습니다!";
     }
 
+    @RequestMapping("/test9")
+    @ResponseBody
+    public String test9(@RequestParam("dan") int dan) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 1; i <= 9; i++) {
+            sb.append(dan + " X " + i + " = " + (dan * i) + "<br>");
+        }
+
+
+        return sb.toString();
+    }
+    @RequestMapping("/test10")
+    @ResponseBody
+    public String test10(@RequestParam("dan") int dan, @RequestParam("limit") int limit) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 1; i <= limit; i++) {
+            sb.append(dan + " X " + i + " = " + (dan * i) + "<br>");
+        }
+
+        return sb.toString();
+    }
+
+    @RequestMapping("/test11")
+    @ResponseBody
+    public String test11(@RequestParam("name") String name, @RequestParam("age") int age) {
+        return age + "살 " + name + "입니다.";
+    }
+
 
 }
 
