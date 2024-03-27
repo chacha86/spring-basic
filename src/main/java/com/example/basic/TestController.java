@@ -134,7 +134,25 @@ public class TestController {
         } else {
             return "로그인 실패";
         }
+    }
 
+    @RequestMapping("/loginView")
+    @ResponseBody
+    public String loginView() {
+        return """
+                <form action="http://localhost:8088/login">
+                    <div>아이디<input type="text" name="loginId"></div>
+                    <div>비밀번호<input type="password" name="password"></div>
+                    <div><input type="submit" value="로그인"></div>
+                </form>
+                """;
+    }
+
+    @RequestMapping("/loginView2")
+    // ResponseBody를 붙이지 않으면 template으로 view를 대체한다는 의미
+    // 타임리프 라이브러리 추가해야함.
+    public String loginView2() {
+        return "login";
     }
 
 }
