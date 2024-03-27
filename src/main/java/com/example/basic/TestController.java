@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
@@ -57,6 +58,7 @@ public class TestController {
     @RequestMapping("/test5")
     @ResponseBody
     public String test5() {
+
         StringBuilder sb = new StringBuilder();
         sb.append("<h1>hello</h1>");
         sb.append("<ul>");
@@ -77,6 +79,19 @@ public class TestController {
         }
 
         return sb.toString();
+    }
+
+    @RequestMapping("/test7")
+    @ResponseBody
+    public String test7(@RequestParam("num1") int num1, @RequestParam("num2") int num2) {
+        int result = num1 + num2;
+        return "result : " + result;
+    }
+
+    @RequestMapping("/test8")
+    @ResponseBody
+    public String test8(@RequestParam("name") String name) {
+        return name + "님 반갑습니다!";
     }
 
 
