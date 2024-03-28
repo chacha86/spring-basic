@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -158,6 +159,24 @@ public class TestController {
     @RequestMapping("/html-test")
     public String htmlTest() {
         return "test";
+    }
+
+    @RequestMapping("/data")
+    public String dataSend(Model model) {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("apple");
+        list.add("banana");
+        list.add("orange");
+
+        Person person = new Person("홍길동", 20);
+
+        model.addAttribute("myNumber", 19);
+        model.addAttribute("myName", "홍길동");
+        model.addAttribute("fruitsList", list);
+        model.addAttribute("person", person);
+
+        return "test";
+
     }
 }
 
